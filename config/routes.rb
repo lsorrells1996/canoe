@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+
+  get '/location_data/:city', to: 'locations#fetch_data'
 end
