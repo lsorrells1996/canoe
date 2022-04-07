@@ -22,18 +22,4 @@ h2 {
   background-color: orange;
 }
 
-.navbar {
-  align-content: center;
-  text-align: center;
-  border-bottom: 1px solid #EEEEEE;
-  border-top: 1px solid #EEEEEE;
-}
 
-.nav {
-  align-content: left;
-}
-
-.nav-item li {
-  display: inline-block;
-  text-align: left;
-}

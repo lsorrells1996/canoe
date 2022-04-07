@@ -26,6 +26,7 @@ function NavBar({ setUser }) {
                         <a className="nav-link active" aria-current="page" href="/home">Home</a>
                         <a className="nav-link" href="/log">Log</a>
                         <a className="nav-link" href="/planning">Plan</a>
+                        <a className="nav-link" href="/planning">About</a>
                     </div>
                 </div>
                 <div>

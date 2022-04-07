@@ -5,26 +5,25 @@ function Home({ setUser }) {
 
     const navigate = useNavigate()
 
-    useEffect(() => {
-        fetch('/me').then(r => {
-            if (r.ok) {
-                r.json().then(user => setUser(user))
-            } else {
-                if (r.status === 401) {
-                    navigate('/')
-                }
-            }
-        })
-    }, [])
+    
 
     
 
     return (
-    <div>You are logged in!
-         
-    </div>
-       
+        <>
+            <div className='container'>
+               <div className='row'>
+                   <div className='col'>
+                        left stuff
+                   </div>
+                   <div className='col' align='right'>
+                        {/* this will be a list of the adventures */}
+                       Adventure Log
+                   </div>
+               </div>
+            </div>
+        </>   
     )
-    }
+}
 
 export default Home
