@@ -17,18 +17,11 @@ function Home({ setUser }) {
         })
     }, [])
 
-    const onLogout = () => {
-      fetch("/logout", { method: "DELETE" }).then((r) => {
-        if (r.ok) {
-          setUser(null)
-          navigate('/')
-        }
-      })
-    } 
+    
 
     return (
     <div>You are logged in!
-         <button onClick={ onLogout }>logout</button>
+         
     </div>
        
     )
