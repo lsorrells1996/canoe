@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom"
+import AdventureListItem from './AdventureListItem'
+import PlannedAdventureListItem from './PlannedAdventureListItem'
 
 function Home({ setUser }) {
     
@@ -22,9 +24,7 @@ function Home({ setUser }) {
         }))
 
         Promise.all(myfetches)
-    }, [] )    
-
-    console.log(adventures)
+    }, [] )
 
     return (
         <>
@@ -33,13 +33,13 @@ function Home({ setUser }) {
                 {plannedAdventures ? <div className='col' align='left'>
                         Planned Adventures
                         {plannedAdventures.map(a => {
-                            return <p>{`This is my ${a.title} adventure!`}</p>
+                             return <div> <PlannedAdventureListItem title={a.title} id={a.id} /> </div>
                         })}
                     </div> : null}
                     {adventures ? <div className='col' align='right'>
                         Adventure Log
                         {adventures.map(a => {
-                            return <p>{`This is my ${a.title} adventure!`}</p>
+                            return <div> <AdventureListItem title={a.title} id={a.id} /> </div>
                         })}
                     </div> : null}
                 </div>

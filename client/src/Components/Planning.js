@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete'
 import { useNavigate } from 'react-router-dom'
 
@@ -21,8 +21,13 @@ function Planning({user}) {
                 r.json().then(data => setLocation(data))
             }
         })
-        setLocationList([...locationList, location.data[0]])
     }
+
+    useEffect( () => {
+      if (location) {
+          setLocationList([...locationList, location.data[0]])
+      }
+    }, [location] )
 
     const onCreateAdventure = e => {
         e.preventDefault()
@@ -42,7 +47,6 @@ function Planning({user}) {
             }
         })
     }
-    console.log(locationList)
     
     return (
         <div className='container' align='center'>
@@ -77,9 +81,9 @@ function Planning({user}) {
             </div>
             <div className='row'>
                 <div className='col'>
-                    {locationList.map( locale => {
+                    {locationList ? locationList.map( locale => {
                         return <p> { `${locale.city}, ${locale.country}` } </p> 
-                    })}
+                    }): null }
                 </div>
             </div>
         </div>

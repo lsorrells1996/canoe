@@ -28,7 +28,7 @@ function Log({user}) {
             setLocationList([...locationList, location.data[0]])
         }
     }, [location] )
-    console.log(location)
+    
     const onCreateAdventure = e => {
         e.preventDefault()
         fetch('/adventures', {
@@ -47,7 +47,6 @@ function Log({user}) {
             }
         })
     }
-    console.log(locationList)
     
     return (
         <div className='container' align='center'>

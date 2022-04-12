@@ -4,7 +4,11 @@ class AdventuresController < ApplicationController
     end
 
     def index 
-        render json: Adventure.all, status: :ok
+        render json: Adventure.where(user_id:[current_user.id]), status: :ok
+    end
+
+    def show
+        render json: Adventure.find(params[:id]), status: :ok
     end
 
     private
