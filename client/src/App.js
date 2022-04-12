@@ -29,8 +29,8 @@ function App() {
           <Route path="/" element={ <Login setUser={ setUser } /> } />
           <Route path="/signup" element={ <Signup setUser={ setUser } /> } />
           <Route path="/home" element={ <Home setUser={ setUser } /> } />
-          <Route path="/log" element={ <Log /> } />
-          <Route path="/planning" element={ <Planning /> } />
+          <Route path="/log" element={ <Log user={ user } /> } />
+          <Route path="/planning" element={ <Planning user={ user } /> } />
         </Routes>
       </>
       ):(

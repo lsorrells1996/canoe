@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete'
 import { useNavigate } from 'react-router-dom'
 
-function Log() {
+function Log({user}) {
 
     const [title, setTitle] = useState('')
     const [address, setAddress] = useState('')
@@ -14,16 +14,21 @@ function Log() {
         const results = await geocodeByAddress(value)
         setAddress(value)
         const last_address_component = (results[0].address_components.length - 1)
-        const country_code = await (results[0].address_components[last_address_component].short_name)
-        const city = await (results[0].address_components[0].long_name)
+        const country_code = (results[0].address_components[last_address_component].short_name)
+        const city = (results[0].address_components[0].long_name)
         fetch(`/location_data/${city}/${country_code}`).then(r => {
             if (r.ok) {
                 r.json().then(data => setLocation(data))
             }
         })
-        setLocationList([...locationList, location.data[0]])
     }
 
+    useEffect( () => {
+        if (location) {
+            setLocationList([...locationList, location.data[0]])
+        }
+    }, [location] )
+    
     const onCreateAdventure = e => {
         e.preventDefault()
         fetch('/adventures', {
@@ -32,6 +37,7 @@ function Log() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
+                user_id: user.id,
                 title,
                 location_list: locationList
             })
@@ -76,9 +82,9 @@ function Log() {
             </div>
             <div className='row'>
                 <div className='col'>
-                    {locationList.map( locale => {
+                    {locationList ? locationList.map( locale => {
                         return <p> { `${locale.city}, ${locale.country}` } </p> 
-                    })}
+                    }): null }
                 </div>
             </div>
         </div>

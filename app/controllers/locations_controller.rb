@@ -17,7 +17,7 @@ class LocationsController < ApplicationController
 
         request = Net::HTTP::Get.new(url)
         request["X-RapidAPI-Host"] = 'wft-geo-db.p.rapidapi.com'
-        request["X-RapidAPI-Key"] = 'a393845950msh1cdf3f480dae5acp1cd891jsn88f22e250672'
+        request["X-RapidAPI-Key"] = GEODB_API_KEY
 
         response = http.request(request)
 

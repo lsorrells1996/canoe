@@ -1,10 +1,10 @@
-class AdventuresController < ApplicationController
+class PlannedAdventuresController < ApplicationController
     def create 
-        render json: Adventure.create!(adventure_params), status: :created
+        render json: PlannedAdventure.create!(adventure_params), status: :created
     end
 
     def index 
-        render json: Adventure.all, status: :ok
+        render json: PlannedAdventure.all, status: :ok
     end
 
     private

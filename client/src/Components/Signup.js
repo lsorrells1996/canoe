@@ -41,6 +41,7 @@ function Signup({ setUser }) {
            <div className='col'>
                <h1>Create an account</h1>
             </div>
+            {errors ? <p>{`${errors}`}</p> : null}
         </div>
         <div className='row'>
             <form typ='submit' onSubmit={ onSignup } >

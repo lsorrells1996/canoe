@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :adventures, only: :create
+  resources :planned_adventures, only: [:create, :index]
+  resources :adventures, only: [:create, :index]
   # resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get '*path', to: 'fallback#index', constraints: ->(req) { !req.xhr? && req.format.html? }
