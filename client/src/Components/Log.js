@@ -1,24 +1,58 @@
 import React, { useState } from 'react'
-import PlacesAutocomplete from 'react-places-autocomplete'
+import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete'
+import { useNavigate } from 'react-router-dom'
 
 function Log() {
 
     const [title, setTitle] = useState('')
     const [address, setAddress] = useState('')
     const [location, setLocation] = useState(null)
+    const [locationList, setLocationList] = useState([])
+    const navigate = useNavigate()
 
-    const handleSelect = (value) => {
+    const handleSelect = async value => {
+        const results = await geocodeByAddress(value)
         setAddress(value)
-        fetch(`/location_data/${value}`).then(r => r.json()).then(data => setLocation(data))
+        const last_address_component = (results[0].address_components.length - 1)
+        const country_code = await (results[0].address_components[last_address_component].short_name)
+        const city = await (results[0].address_components[0].long_name)
+        fetch(`/location_data/${city}/${country_code}`).then(r => {
+            if (r.ok) {
+                r.json().then(data => setLocation(data))
+            }
+        })
+        setLocationList([...locationList, location.data[0]])
     }
-    console.log(location)
+
+    const onCreateAdventure = e => {
+        e.preventDefault()
+        fetch('/adventures', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title,
+                location_list: locationList
+            })
+        }).then(r => {
+            if (r.ok) {
+                navigate('/home')
+            }
+        })
+    }
+    console.log(locationList)
+    
     return (
         <div className='container' align='center'>
             <div className='row'>
                 <div className='col'>
-                    <form type='submit'>
+                    <form type='submit' onSubmit={onCreateAdventure}>
                         <label/> <div>Title:</div>
                         <input type='text' onChange={ e => setTitle(e.target.value) } placeholder='Title...'></input>
+                        <div>
+                            <button type='submit'>submit</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -39,6 +73,13 @@ function Log() {
                         </div>
                     )}
                 </PlacesAutocomplete>
+            </div>
+            <div className='row'>
+                <div className='col'>
+                    {locationList.map( locale => {
+                        return <p> { `${locale.city}, ${locale.country}` } </p> 
+                    })}
+                </div>
             </div>
         </div>
     )

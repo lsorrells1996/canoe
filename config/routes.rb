@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :adventures, only: :create
   # resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get '*path', to: 'fallback#index', constraints: ->(req) { !req.xhr? && req.format.html? }
@@ -9,5 +10,5 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get '/location_data/:city', to: 'locations#fetch_data'
+  get '/location_data/:city/:country_code', to: 'locations#fetch_data'
 end
