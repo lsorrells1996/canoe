@@ -95,7 +95,6 @@ function Log({user}) {
                     </form>
                 </div>
             </div>
-            
         </div>
     )
 }

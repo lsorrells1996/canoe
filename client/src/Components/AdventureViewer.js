@@ -15,7 +15,7 @@ function AdventureViewer() {
     }, [] )
     
     let locations = adventure.location_list
-    console.log(adventure)
+    
     return (
         <div className='container' align='center'>
             <div className='row'>
