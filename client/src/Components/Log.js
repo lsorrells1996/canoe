@@ -28,7 +28,7 @@ function Log({user}) {
             setLocationList([...locationList, location.data[0]])
         }
     }, [location] )
-    
+    console.log(location)
     const onCreateAdventure = e => {
         e.preventDefault()
         fetch('/adventures', {
