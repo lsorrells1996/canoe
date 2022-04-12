@@ -15,11 +15,12 @@ function AdventureViewer() {
     }, [] )
     
     let locations = adventure.location_list
-    
+    console.log(adventure)
     return (
         <div className='container' align='center'>
             <div className='row'>
                 <h1>{adventure.title}</h1>
+                <h2>{adventure.trip_start} - {adventure.trip_end}</h2>
                 {locations ? locations.map(l => {
                     return <h3>{l.city}</h3>
                 }) : null}

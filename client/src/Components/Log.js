@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom'
 function Log({user}) {
 
     const [title, setTitle] = useState('')
+    const [tripStart, setTripStart] = useState('')
+    const [tripEnd, setTripEnd] = useState('')
     const [address, setAddress] = useState('')
     const [location, setLocation] = useState(null)
     const [locationList, setLocationList] = useState([])
@@ -39,6 +41,8 @@ function Log({user}) {
             body: JSON.stringify({
                 user_id: user.id,
                 title,
+                trip_start: tripStart,
+                trip_end: tripEnd,
                 location_list: locationList
             })
         }).then(r => {
@@ -50,18 +54,8 @@ function Log({user}) {
     
     return (
         <div className='container' align='center'>
-            <div className='row'>
-                <div className='col'>
-                    <form type='submit' onSubmit={onCreateAdventure}>
-                        <label/> <div>Title:</div>
-                        <input type='text' onChange={ e => setTitle(e.target.value) } placeholder='Title...'></input>
-                        <div>
-                            <button type='submit'>submit</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div className='row'>
+             <div className='row'>
+                 <h2>Add Locations to your trip!</h2>
                 <PlacesAutocomplete value={address} onChange={setAddress} onSelect={handleSelect} >
                     {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                         <div>
@@ -86,6 +80,22 @@ function Log({user}) {
                     }): null }
                 </div>
             </div>
+            <div className='row'>
+                <div className='col'>
+                    <form type='submit' onSubmit={onCreateAdventure}>
+                        <label/> <div>Title:</div>
+                        <input type='text' onChange={ e => setTitle(e.target.value) } placeholder='Title...'></input>
+                        <label/> <div>Trip start:</div>
+                        <input type='date' onChange={ e => setTripStart(e.target.value) } ></input>
+                        <label/> <div>Trip end:</div>
+                        <input type='date' onChange={ e => setTripEnd(e.target.value) } ></input>
+                        <div>
+                            <button type='submit'>submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
         </div>
     )
 }

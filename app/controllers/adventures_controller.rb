@@ -14,7 +14,7 @@ class AdventuresController < ApplicationController
     private
 
     def adventure_params
-        params.permit(:user_id, :title, location_list: [
+        params.permit(:user_id, :title, :trip_start, :trip_end, location_list: [
             :wikiDataId, :type, :city, :country, :countryCode, :region, :poplulation
         ])
     end
