@@ -1,18 +1,20 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 function AdventureListItem({ title, id }) {
+  let name = title;
+  name = name.replace(/\s+/g, "-");
+  const url = `/${name}/${id}`;
 
-    let name = title;
-    name = name.replace(/\s+/g, '-');
-    const url = `/${name}/${id}`
-
-    return (
-        <>      
-            <div>this is my {`${title}`} adventure!</div>
-            <Link to={url}> Expand! </Link>
-        </>
-    )
+  return (
+    <>
+      <div>this is my {`${title}`} adventure!</div>
+      <Link to={url} className="expand">
+        {" "}
+        Expand!{" "}
+      </Link>
+    </>
+  );
 }
 
-export default AdventureListItem
+export default AdventureListItem;

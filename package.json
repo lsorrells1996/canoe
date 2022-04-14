@@ -12,5 +12,8 @@
     },
     "dependencies": {
         "react-places-autocomplete": "^7.3.0"
+    },
+    "devDependencies": {
+        "prettier": "2.6.2"
     }
 }

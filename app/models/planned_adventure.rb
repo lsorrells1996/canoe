@@ -5,4 +5,5 @@ class PlannedAdventure < ApplicationRecord
   validates :title, presence: :true
   validates :trip_start, presence: :true
   validates :trip_end, presence: :true
+  validates :location_list, presence: :true
 end
