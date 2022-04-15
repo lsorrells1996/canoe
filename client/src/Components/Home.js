@@ -28,7 +28,8 @@ function Home({ setUser }) {
 
     Promise.all(myfetches);
   }, []);
-
+  console.log(adventures)
+  console.log(plannedAdventures)
   return (
     <>
       <div className="container">
@@ -36,11 +37,11 @@ function Home({ setUser }) {
           {plannedAdventures && (
             <div className="col" align="left">
               Planned Adventures
-              {plannedAdventures.map((a) => {
+              {plannedAdventures.map((p) => {
                 return (
                   <div>
                     {" "}
-                    <PlannedAdventureListItem title={a.title} id={a.id} />{" "}
+                    <PlannedAdventureListItem key={p.id} title={p.title} id={p.id} />{" "}
                   </div>
                 );
               })}
@@ -53,7 +54,7 @@ function Home({ setUser }) {
                 return (
                   <div>
                     {" "}
-                    <AdventureListItem title={a.title} id={a.id} />{" "}
+                    <AdventureListItem key={a.id} title={a.title} id={a.id} />{" "}
                   </div>
                 );
               })}

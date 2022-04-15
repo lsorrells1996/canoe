@@ -25,3 +25,8 @@ h2 {
 .expand {
   color: rgb(226, 139, 9);
 }
+
+.city-img {
+  height: 300px;
+  width: 300px;
+}

@@ -43,6 +43,7 @@ function AdventureViewer() {
                 <Location
                   city={l.city}
                   id={adventure.id}
+                  title={adventure.title}
                   wikiId={l.wikiDataId}
                 />
               );

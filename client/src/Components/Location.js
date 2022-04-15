@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function Location({ city, id, wikiId, comments }) {
+function Location({ city, id, wikiId, comments, title }) {
   const [showCommentForm, setShowCommentForm] = useState(false);
   const [comment, setComment] = useState("");
   const [commentList, setCommentList] = useState([]);
+  const [wikiData, setWikiData] = useState(null)
 
   const toggleCommentForm = () => setShowCommentForm(!showCommentForm);
 
+  useEffect( () => {
+    fetch(`/location_data/${wikiId}`).then(r => {
+      if (r.ok) {
+        r.json().then(data => setWikiData(data))
+      }
+    })
+  }, [] )
+  // console.log(wikiData.data_hash.imagename)
+
+ 
   const addComment = (e) => {
     e.preventDefault();
     fetch("/comments", {
@@ -29,6 +40,7 @@ function Location({ city, id, wikiId, comments }) {
   return (
     <div>
       <h3>{city}</h3>
+      {wikiData ? <img className="city-img" src={`${wikiData.data_hash.file.urls.file}`}/> : null}
       <h4>hold</h4>
       {showCommentForm ? (
         <form onSubmit={addComment}>

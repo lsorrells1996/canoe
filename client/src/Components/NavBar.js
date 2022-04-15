@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function NavBar({ setUser }) {
   const navigate = useNavigate();
@@ -16,9 +16,9 @@ function NavBar({ setUser }) {
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <Link to="/home" className="navbar-brand">
           Canoe
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -32,18 +32,18 @@ function NavBar({ setUser }) {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <a className="nav-link active" aria-current="page" href="/home">
+            <Link to="/home" className="nav-link">
               Home
-            </a>
-            <a className="nav-link" href="/log">
+            </Link>
+            <Link to="/log" className="nav-link">
               Log
-            </a>
-            <a className="nav-link" href="/planning">
+            </Link>
+            <Link to="/planning" className="nav-link">
               Plan
-            </a>
-            <a className="nav-link" href="/about">
+            </Link>
+            <Link to="/about" className="nav-link">
               About
-            </a>
+            </Link>
           </div>
         </div>
         <div>

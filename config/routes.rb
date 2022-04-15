@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   get '/location_data/:city/:country_code', to: 'locations#fetch_data'
+  get '/location_data/:wiki_data_id', to: 'locations#fetch_wiki_data'
 end
