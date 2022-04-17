@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import About from "./Components/About";
 import AdventureViewer from "./Components/AdventureViewer";
 import Home from "./Components/Home";
@@ -12,7 +12,6 @@ import Signup from "./Components/Signup";
 
 function App() {
   const [user, setUser] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("/me").then((r) => {

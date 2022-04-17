@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import AdventureListItem from "./AdventureListItem";
 import PlannedAdventureListItem from "./PlannedAdventureListItem";
 
 function Home({ setUser }) {
   const [adventures, setAdventures] = useState([]);
   const [plannedAdventures, setPlannedAdventures] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     let myfetches = [];
@@ -28,8 +26,7 @@ function Home({ setUser }) {
 
     Promise.all(myfetches);
   }, []);
-  console.log(adventures)
-  console.log(plannedAdventures)
+  
   return (
     <>
       <div className="container">

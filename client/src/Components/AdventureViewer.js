@@ -12,23 +12,10 @@ function AdventureViewer() {
         r.json().then((data) => setAdventure(data));
       }
     });
-  }, []);
+  }, [params.id]);
 
   let locations = adventure.location_list;
   let comments = adventure.comments;
-
-  // const filteredActivities = () => {
-  //     if (mood === "chill") {
-  //     return activityData.filter((a) => a.mood_id === 1);
-  // const filteredComments = () => {
-  //     if (comments.id === wikiId) {
-  //         return comments.filter(a => )
-  //     }
-  // }
-
-  // const filterComments = comments.filter(c => c.wikiId === wikiId)
-
-  console.log(comments);
 
   return (
     <div className="container" align="center">

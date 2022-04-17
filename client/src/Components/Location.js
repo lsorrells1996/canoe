@@ -14,9 +14,7 @@ function Location({ city, id, wikiId, comments, title }) {
         r.json().then(data => setWikiData(data))
       }
     })
-  }, [] )
-  // console.log(wikiData.data_hash.imagename)
-
+  }, [wikiId] )
  
   const addComment = (e) => {
     e.preventDefault();
@@ -40,7 +38,7 @@ function Location({ city, id, wikiId, comments, title }) {
   return (
     <div>
       <h3>{city}</h3>
-      {wikiData ? <img className="city-img" src={`${wikiData.data_hash.file.urls.file}`}/> : null}
+      {wikiData ? <img className="city-img" src={`${wikiData.data_hash.file.urls.file}`} alt="" /> : null}
       <h4>hold</h4>
       {showCommentForm ? (
         <form onSubmit={addComment}>

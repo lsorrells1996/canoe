@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Location from "./Location";
 
 function PlannedAdventureViewer() {
   const [adventure, setAdventure] = useState("");
@@ -11,9 +12,10 @@ function PlannedAdventureViewer() {
         r.json().then((data) => setAdventure(data));
       }
     });
-  }, []);
+  }, [params.id]);
 
   let locations = adventure.location_list;
+  let comments = adventure.comments;
 
   return (
     <div className="container" align="center">
@@ -24,7 +26,14 @@ function PlannedAdventureViewer() {
         </h2>
         {locations
           ? locations.map((l) => {
-              return <h3>{l.city}</h3>;
+              return (
+                <Location
+                  city={l.city}
+                  id={adventure.id}
+                  title={adventure.title}
+                  wikiId={l.wikiDataId}
+                />
+              );
             })
           : null}
       </div>
