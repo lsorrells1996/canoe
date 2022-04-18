@@ -4,26 +4,93 @@
 }
 
 body {
-  /* background: url(../img/canoe_bg.jpg) no-repeat 50% 50%;
+  background: url(img/canoe_bg.jpg) no-repeat 50% 50%;
   background-size: cover;
   width: 100%;
-  height: 100%; */
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(31, 85, 129); 
+  height: 100vh;
 }
 
+/* .header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  height: 100px;
+  width: 100%;
+}
+
+.logo {
+  margin-left: 50px;
+  font-size: 30px;
+  font-weight: 500;
+  font-family: 'Akshar' sans-serif;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  margin-right: 50px;
+}
+
+.menu-link {
+  font-weight: 300;
+  font-size: 20px;
+  font-family: 'Akshar' sans-serif;
+  margin-left: 20px;
+  color: #000;
+  text-decoration: none;
+} */
+
+.about {
+  font-family: 'Playfair Display', serif;
+  display: flex;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 600px;
+  flex-direction: column;
+  background-color: rgb(209, 179, 140, 0.5);
+  height: 300px;
+}
+
+.about-title {
+  display: flex;
+  border-bottom: 1px solid black;
+  margin-top: 10px;
+}
+
+.about-body {
+  display: flex;
+  margin-top: 10px;
+  margin-left: 10px;
+  justify-content: center;
+}
+
+.mission-title {
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+.mission-body {
+  align-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+/* // /////////////////////////////////////////////////////// */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-h2 {
-  color: rgb(226, 139, 9);
 }
 
 .btn-primary {

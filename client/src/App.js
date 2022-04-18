@@ -5,10 +5,11 @@ import AdventureViewer from "./Components/AdventureViewer";
 import Home from "./Components/Home";
 import Log from "./Components/Log";
 import Login from "./Components/Login";
-import NavBar from "./Components/NavBar";
 import PlannedAdventureViewer from "./Components/PlannedAdventureViewer";
 import Planning from "./Components/Planning";
 import Signup from "./Components/Signup";
+import Header from "./Components/Header";
+import './App.css'
 
 function App() {
   const [user, setUser] = useState(null);
@@ -25,7 +26,7 @@ function App() {
     <>
       {user ? (
         <>
-          <NavBar setUser={setUser} />
+          <Header setUser={setUser} />
           <Routes>
             <Route path="/" element={<Login setUser={setUser} />} />
             <Route path="/signup" element={<Signup setUser={setUser} />} />

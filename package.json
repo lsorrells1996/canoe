@@ -11,6 +11,7 @@
         "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
     },
     "dependencies": {
+        "gsap": "^3.10.3",
         "react-places-autocomplete": "^7.3.0"
     },
     "devDependencies": {

@@ -1,10 +1,15 @@
 import React from "react";
+import './About.css'
 
 function About() {
   return (
-    <div className="container" align="center">
-      <h1>We love to adventure!</h1>
+    <div>
+      <div className="about">
+          <h1>Why we love this shit</h1>
+          <p>its dank</p>
+      </div>
     </div>
+    
   );
 }
 
