@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import AdventureListItem from "./AdventureListItem";
 import PlannedAdventureListItem from "./PlannedAdventureListItem";
 
-function Home({ setUser }) {
+function Home({ setUser, user }) {
   const [adventures, setAdventures] = useState([]);
   const [plannedAdventures, setPlannedAdventures] = useState([]);
 
@@ -26,7 +26,7 @@ function Home({ setUser }) {
 
     Promise.all(myfetches);
   }, []);
-  
+ 
   return (
     <>
       <div className="container">

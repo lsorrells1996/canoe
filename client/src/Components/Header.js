@@ -2,7 +2,7 @@ import React from "react";
 import "./Header.css"
 import { useNavigate, Link } from "react-router-dom";
 
-function Header({ setUser }) {
+function Header({ setUser, user, handleLoginClick }) {
   const navigate = useNavigate();
 
   const onLogout = () => {
@@ -15,19 +15,37 @@ function Header({ setUser }) {
   };
 
   return (
-    <div>
-      <div className="header">
-        <div className="logo">Canoe</div>
-        <div className="menu">
-          <ul>
-            <Link className="menu-list" to="/home">Home</Link>
-            <Link className="menu-list" to="/log">Log</Link>
-            <Link className="menu-list" to="/planning">Plan</Link>
-            <Link className="menu-list" to="/about">About</Link>
-          </ul>
+    <>
+      { user ? (
+        
+          <div className="header">
+            <div className="logo">Canoe</div>
+            <div className="menu">
+              <ul>
+                <Link className="menu-list" to="/home">Home</Link>
+                <Link className="menu-list" to="/log">Log</Link>
+                <Link className="menu-list" to="/planning">Plan</Link>
+              </ul>
+            </div>
+            <div className="logout">
+              <button onClick={onLogout} >Logout</button>
+            </div>
+          </div>
+        
+       ) : (
+        <div>
+          <div className="header">
+            <div className="logo">Canoe</div>
+            <div className="menu">
+              <ul>
+                <Link className="menu-list" to="/login" onClick={() => handleLoginClick()}>Login</Link>
+                <Link className="menu-list" to="/signup">Sign Up</Link>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+       )}
+    </>
 
     // <nav className="navbar navbar-expand-md navbar-dark bg-dark">
     //   <div className="container-fluid">

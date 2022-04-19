@@ -26,14 +26,11 @@ function App() {
     <>
       {user ? (
         <>
-          <Header setUser={setUser} />
+          <Header user={user} setUser={setUser} />
           <Routes>
-            <Route path="/" element={<Login setUser={setUser} />} />
-            <Route path="/signup" element={<Signup setUser={setUser} />} />
-            <Route path="/home" element={<Home setUser={setUser} />} />
+            <Route path="/home" element={<Home user={user} setUser={setUser} />} />
             <Route path="/log" element={<Log user={user} />} />
             <Route path="/planning" element={<Planning user={user} />} />
-            <Route path="/about" element={<About />} />
             <Route path="/:adventure_title/:id" element={<AdventureViewer />} />
             <Route
               path="p/:adventure_title/:id"
@@ -42,10 +39,13 @@ function App() {
           </Routes>
         </>
       ) : (
-        <Routes>
-          <Route path="/" element={<Login setUser={setUser} />} />
-          <Route path="/signup" element={<Signup setUser={setUser} />} />
-        </Routes>
+        <>
+          <Routes>
+            <Route path="/login" element={<Login setUser={setUser} />} />
+            <Route path="/" element={<About setUser={setUser} />} />
+            <Route path="/signup" element={<Signup setUser={setUser} />} />
+          </Routes>
+        </>
       )}
     </>
   );

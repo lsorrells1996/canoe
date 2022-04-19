@@ -1,0 +1,130 @@
+.modal-background{
+    width: 100vw;
+    height: 100vh;
+    background: url('../img/canoe_login_signup_bg.jpg');
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fly-in {
+    from {left: 1000px;}
+    to {left: 0px;}
+}
+
+.modal-container{
+    width: 550px;
+    height: 550px;
+    border-radius: 25px;
+    background-color: rgb(255, 191, 134, .7);
+    box-shadow: rgb(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    animation-name: fly-in;
+    animation-duration: 2s;
+    
+}
+
+.picture-container {
+    font-family: 'Akshar', sans-serif;
+    color: #CEE5D0;
+    font-size: larger;
+    display: flex;
+    flex-direction: column;
+    height: 550px;
+    width: 250px;
+    align-items: center;
+    border-right: black solid;
+    
+}
+
+.picture-container img {
+    height: 300px;
+    width: 250px;
+    margin-top: 30px;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.input {
+    font-family: 'Akshar', sans-serif;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-top: 40px;
+    color: #CEE5D0;
+    
+}
+
+.input input {
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 1px 1px 5px black;
+}
+
+.login-container{
+    display: flex;
+    justify-content: center;
+}
+
+.login-button{
+    border: none;
+    border-radius: 25px;
+    font-family: 'Akshar', sans-serif;
+    color: #FED2AA;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-weight:bold;
+    padding: 10px;
+    padding-left: 65px;
+    padding-right: 65px;
+    margin-left: 30px;
+    font-size: 20px;
+    margin-top: 20px;
+    background-color: rgb(206, 229, 208, .8);
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.login-button:hover {
+    color: #CEE5D0;
+    background-color: #FED2AA;
+}
+
+.signup {
+    font-family: 'Akshar', sans-serif;
+    color: #CEE5D0;
+    font-size: 20px;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 25%;
+}
+
+.signup p {
+    margin-left: 10px;
+}
+
+.signup a{
+    margin-left: 10px;
+    text-decoration: none;
+    color: #CEE5D0;
+}
+
+.signup a:hover {
+    color: aqua;
+}

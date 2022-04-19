@@ -1,0 +1,99 @@
+.modal-signup-background{
+    width: 100vw;
+    height: 100vh;
+    background: url('../img/canoe_login_signup_bg.jpg');
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes flip {
+    from {transform: rotateY(360deg);}
+    
+}
+
+.modal-signup-container{
+    width: 550px;
+    height: 550px;
+    border-radius: 25px;
+    background-color: rgb(255, 191, 134, .7);
+    box-shadow: rgb(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    animation: flip 1s;
+    
+}
+
+.picture-signup-container {
+    font-family: 'Akshar', sans-serif;
+    color: #CEE5D0;
+    font-size: larger;
+    display: flex;
+    flex-direction: column;
+    height: 550px;
+    width: 250px;
+    align-items: center;
+    border-right: black solid;
+    
+}
+
+.picture-signup-container img {
+    height: 300px;
+    width: 250px;
+    margin-top: 30px;
+}
+
+.input-signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Akshar', sans-serif;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-top: 40px;
+    color: #CEE5D0;
+    
+}
+
+.input-signup input {
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 1px 1px 5px black;
+}
+
+.login-signup-container{
+    display: flex;
+    justify-content: center;
+}
+
+.signup-button{
+    border: none;
+    border-radius: 25px;
+    font-family: 'Akshar', sans-serif;
+    color: #FED2AA;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-weight:bold;
+    padding: 10px;
+    padding-left: 65px;
+    padding-right: 65px;
+    margin-left: 30px;
+    font-size: 20px;
+    margin-top: 20px;
+    background-color: rgb(206, 229, 208, .8);
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.signup-button:hover {
+    color: #CEE5D0;
+    background-color: #FED2AA;
+}

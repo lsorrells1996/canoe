@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import "./Login.css"; 
+import logo from "../img/canoe_logo.png"
+import { useNavigate, Link } from "react-router-dom";
 
 function Login({ setUser }) {
   const [username, setUsername] = useState("");
@@ -31,39 +33,46 @@ function Login({ setUser }) {
   };
 
   return (
-    <div className="container" align="center">
-      <div className="row">
-        <div className="col">
-          <h1> Canoe </h1>
+    <div className="modal-background">
+      <div className="modal-container">
+        <div className="picture-container">
+          <h1>Canoe</h1>
+          <img src={logo} alt="logo" />
         </div>
-      </div>
-      {errors ? <p>{`${errors}`}</p> : null}
-      <form type="submit" onSubmit={onLogin}>
-        <div className="row">
-          <div className="col">
-            <label /> <div>Username:</div>
-            <input
-              type="text"
-              placeholder="Username..."
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <label /> <div>Password:</div>
-            <input
-              type="password"
-              placeholder="Password..."
-              onChange={(e) => setPassword(e.target.value)}
-            />
+        <form onSubmit={onLogin}>
+          <div className="input-container">
+            <div className="input">
+              <label /> Username
+              <input
+                type="text"
+                placeholder="Username..."
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
+            <div className="input">
+              <label />
+              Password
+              <input
+                type="password"
+                placeholder="Password..."
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="login-container">
+            <button type="submit" className="login-button">
+              Login
+            </button>
+          </div>
+          <div className="signup">
+          <div>
+            <p>Don't have an account?</p>
+          </div>
+          <div>
+            <Link to='/signup' className=''>Signup!</Link>
           </div>
         </div>
-        <div className="col">
-          <button className="btn-primary" type="submit">
-            Login
-          </button>
-        </div>
-      </form>
-      <div className="row">
-        <p>Don't have an account?</p>
-        <a href="/signup"> Signup </a>
+        </form>
       </div>
     </div>
   );
