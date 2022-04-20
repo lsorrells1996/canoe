@@ -1,53 +1,27 @@
 import React, { useState, useEffect } from "react";
-import "./Location.css"
 
-function Location({ city, id, wikiId, comments, title }) {
-  const [showCommentForm, setShowCommentForm] = useState(false);
-  const [comment, setComment] = useState("");
-  const [commentList, setCommentList] = useState([]);
-  const [wikiData, setWikiData] = useState(null)
+import "./Location.css";
 
-  const toggleCommentForm = () => setShowCommentForm(!showCommentForm);
+function Location({ city, wikiId }) {
+  const [wikiData, setWikiData] = useState(null);
 
-  useEffect( () => {
-    fetch(`/location_data/${wikiId}`).then(r => {
+  useEffect(() => {
+    fetch(`/location_data/${wikiId}`).then((r) => {
       if (r.ok) {
-        r.json().then(data => setWikiData(data))
-      }
-    })
-  }, [wikiId] )
- 
-  const addComment = (e) => {
-    e.preventDefault();
-    fetch("/comments", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        adventure_id: id,
-        location_id: wikiId,
-        comment,
-      }),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((data) => setCommentList(...commentList, data));
+        r.json().then((data) => setWikiData(data));
       }
     });
-  };
+  }, [wikiId]);
 
   return (
-    <div className="location-container">
+    <div className="locations-container">
       <h3>{city}</h3>
-      {wikiData && <img className="city-img" src={`${wikiData.data_hash.file.urls.file}`} alt="" />}
-      <h4>hold</h4>
-      {showCommentForm ? (
-        <form onSubmit={addComment}>
-          <textarea onChange={(e) => setComment(e.target.value)}></textarea>
-          <button type="submit">Comment!</button>
-        </form>
-      ) : (
-        <button onClick={toggleCommentForm}>Comment!</button>
+      {wikiData && (
+        <img
+          className="city-img"
+          src={`${wikiData.data_hash.file.urls.file}`}
+          alt=""
+        />
       )}
     </div>
   );

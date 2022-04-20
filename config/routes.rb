@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :comments, only: [:create, :index]
+  resources :planned_adventure_comments, only: [:create, :index]
+  resources :adventure_comments, only: [:create, :index]
   resources :planned_adventures, only: [:create, :index, :show]
   resources :adventures, only: [:create, :index, :show]
   # resources :users

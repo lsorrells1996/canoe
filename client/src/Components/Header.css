@@ -17,7 +17,7 @@
 
 .logo {
   display: flex;
-  flex-direction: row;
+
   align-items: center;
   margin-left: 50px;
   font-size: 30px;
@@ -31,24 +31,28 @@
   width: 80px;
 }
 
-.menu-center ul {
+.menu-center {
   padding-inline-start: 0;
 }
 
 .menu-center {
-    display: flex;
-    justify-content: center;
-    align-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu-center-list {
-    font-weight: 300;
-    font-size: 25px;
-    font-family: "Akshar", sans-serif;
-    text-decoration: none;
-    color: #ffbf86;
-    margin-left: 20px; 
-    list-style: none;
+  display: inline-flex;
+  flex-direction: row;
+  font-weight: 300;
+  font-size: 25px;
+  font-family: "Akshar", sans-serif;
+  text-decoration: none;
+  color: #ffbf86;
+  margin-left: 20px;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu-list {

@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_12_210340) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_20_193346) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "adventure_comments", force: :cascade do |t|
+    t.string "notes"
+    t.bigint "adventure_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["adventure_id"], name: "index_adventure_comments_on_adventure_id"
+  end
 
   create_table "adventures", force: :cascade do |t|
     t.string "title"
@@ -34,6 +42,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_12_210340) do
     t.index ["adventure_id"], name: "index_comments_on_adventure_id"
   end
 
+  create_table "planned_adventure_comments", force: :cascade do |t|
+    t.string "notes"
+    t.bigint "planned_adventure_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["planned_adventure_id"], name: "index_planned_adventure_comments_on_planned_adventure_id"
+  end
+
   create_table "planned_adventures", force: :cascade do |t|
     t.string "title"
     t.text "location_list"
@@ -53,7 +69,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_12_210340) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "adventure_comments", "adventures"
   add_foreign_key "adventures", "users"
   add_foreign_key "comments", "adventures"
+  add_foreign_key "planned_adventure_comments", "planned_adventures"
   add_foreign_key "planned_adventures", "users"
 end

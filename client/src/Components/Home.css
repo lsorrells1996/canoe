@@ -4,7 +4,7 @@
     margin-top: 80px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     font-family: 'Akshar', sans-serif;
     font-size: 30px;
 }
@@ -29,6 +29,10 @@
 }
 
 .planned {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
     padding: 10px;
     background-color: rgb(255, 191, 134);
     margin-top: 10px;
@@ -52,11 +56,15 @@
 }
 
 .logged {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
     padding: 10px;
     background-color: rgb(255, 191, 134);
     margin-top: 10px;
     border-radius: 12px; 
-    width: 100%
+    
 }
 
 .logged-expand {
