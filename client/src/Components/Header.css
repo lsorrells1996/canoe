@@ -9,16 +9,25 @@
     height: 80px;
     width: 100%;
     color: white;
-    background-color: rgb(206, 229, 208,);
+    background-color: rgb(206, 229, 208);
     transition: all .7s ease-in;
+    text-shadow: -1px 0 1px black, 0 1px 1px black, 1px 0 1px black, 0 -1px 1px black;
 }
   
 .logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 margin-left: 50px;
 font-size: 30px;
 font-weight: 500;
 font-family: 'Akshar', sans-serif;
 color: #FFBF86;
+}
+
+.logo img {
+    height: 80px;
+    width: 80px;
 }
 
 .menu ul{

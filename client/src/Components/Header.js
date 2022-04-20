@@ -1,5 +1,6 @@
 import React from "react";
 import "./Header.css"
+import logo from "../img/canoe_logo.png"
 import { useNavigate, Link } from "react-router-dom";
 
 function Header({ setUser, user, handleLoginClick }) {
@@ -19,7 +20,9 @@ function Header({ setUser, user, handleLoginClick }) {
       { user ? (
         
           <div className="header">
-            <div className="logo">Canoe</div>
+            <div className="logo">Canoe
+            <img src={logo} alt="" />
+            </div>
             <div className="menu">
               <ul>
                 <Link className="menu-list" to="/home">Home</Link>
@@ -35,7 +38,9 @@ function Header({ setUser, user, handleLoginClick }) {
        ) : (
         <div>
           <div className="header">
-            <div className="logo">Canoe</div>
+          <div className="logo">Canoe
+            <img src={logo} alt="" />
+            </div>
             <div className="menu">
               <ul>
                 <Link className="menu-list" to="/login" onClick={() => handleLoginClick()}>Login</Link>

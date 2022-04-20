@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 75vh;
+    margin-top: 50vh;
     margin-left: 20vh;
     margin-right: 20vh;
     z-index: 100;
@@ -20,6 +20,7 @@
     letter-spacing: -5px;
     font-weight: lighter;
     transition: 1s ease-in-out;
+    text-shadow: -1px 0 1px black, 0 1px 1px black, 1px 0 1px black, 0 -1px 1px black;
 }
 
 .about h1:hover {
@@ -36,6 +37,7 @@
     font-weight: lighter;
     text-transform: uppercase;
     color:#CEE5D0 ;
+    
 }
 
 .about p:hover::after {
