@@ -1,0 +1,65 @@
+.content-container {
+    height: 300px;
+    width: 100%;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Akshar', sans-serif;
+    font-size: 30px;
+}
+
+@keyframes slide-down {
+    from {bottom: 1000px;}
+    to {bottom: 0px;}
+}
+
+@keyframes slide-up {
+    from {top: 1000px;}
+    to {top: 0px;}
+}
+
+.planned-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    animation-name: slide-up;
+    animation-duration: 2s;
+    transition: ease-in-out;
+}
+
+.planned {
+    padding: 10px;
+    background-color: rgb(255, 191, 134);
+    margin-top: 10px;
+    border-radius: 12px;
+}
+
+.planned-expand {
+    text-decoration: none;
+    color: #F3F0D7;
+}
+
+.logged-container {
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-end;
+    animation-name: slide-down;
+    animation-duration: 2s;
+    transition: ease-in-out;
+   
+}
+
+.logged {
+    padding: 10px;
+    background-color: rgb(255, 191, 134);
+    margin-top: 10px;
+    border-radius: 12px; 
+    width: 100%
+}
+
+.logged-expand {
+    text-decoration: none;
+    color: #F3F0D7;
+}

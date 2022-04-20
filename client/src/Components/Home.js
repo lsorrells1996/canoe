@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AdventureListItem from "./AdventureListItem";
 import PlannedAdventureListItem from "./PlannedAdventureListItem";
+import "./Home.css"
 
 function Home({ setUser, user }) {
   const [adventures, setAdventures] = useState([]);
@@ -29,14 +30,14 @@ function Home({ setUser, user }) {
  
   return (
     <>
-      <div className="container">
-        <div className="row">
+      <div className="content-container">
+        
           {plannedAdventures && (
-            <div className="col" align="left">
+            <div className="planned-container" >
               Planned Adventures
               {plannedAdventures.map((p) => {
                 return (
-                  <div>
+                  <div className="planned">
                     {" "}
                     <PlannedAdventureListItem key={p.id} title={p.title} id={p.id} />{" "}
                   </div>
@@ -45,19 +46,19 @@ function Home({ setUser, user }) {
             </div>
           ) }
           {adventures && (
-            <div className="col" align="right">
+            <div className="logged-container" >
               Adventure Log
               {adventures.map((a) => {
                 return (
-                  <div>
+                  <div className="logged">
                     {" "}
-                    <AdventureListItem key={a.id} title={a.title} id={a.id} />{" "}
+                    <AdventureListItem key={a.id} title={a.title} id={a.id} tripStart={a.trip_start} tripEnd={a.trip_end} />{" "}
                   </div>
                 );
               })}
             </div>
           ) }
-        </div>
+      
       </div>
     </>
   );

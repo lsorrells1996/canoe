@@ -8,10 +8,10 @@ function PlannedAdventureListItem({ title, id }) {
 
   return (
     <>
-      <div>this is my {`${title}`} adventure!</div>
-      <Link to={url} className="expand">
+      <div>{`${title}`}</div>
+      <Link to={url} className="planned-expand">
         {" "}
-        Expand!{" "}
+        Plan!{" "}
       </Link>
     </>
   );
