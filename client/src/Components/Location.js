@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./Location.css"
 
 function Location({ city, id, wikiId, comments, title }) {
   const [showCommentForm, setShowCommentForm] = useState(false);
@@ -36,9 +37,9 @@ function Location({ city, id, wikiId, comments, title }) {
   };
 
   return (
-    <div>
+    <div className="location-container">
       <h3>{city}</h3>
-      {wikiData ? <img className="city-img" src={`${wikiData.data_hash.file.urls.file}`} alt="" /> : null}
+      {wikiData && <img className="city-img" src={`${wikiData.data_hash.file.urls.file}`} alt="" />}
       <h4>hold</h4>
       {showCommentForm ? (
         <form onSubmit={addComment}>

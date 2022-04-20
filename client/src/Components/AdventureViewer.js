@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Location from "./Location";
+import "./AdventureViewer.css"
 
 function AdventureViewer() {
   const [adventure, setAdventure] = useState("");
@@ -18,14 +19,14 @@ function AdventureViewer() {
   let comments = adventure.comments;
 
   return (
-    <div className="container" align="center">
-      <div className="row">
+    <div className="adventure-container" align="center">
+      <div >
         <h1>{adventure.title}</h1>
         <h2>
           {adventure.trip_start} - {adventure.trip_end}
         </h2>
         {locations
-          ? locations.map((l) => {
+          && locations.map((l) => {
               return (
                 <Location
                   city={l.city}
@@ -35,7 +36,7 @@ function AdventureViewer() {
                 />
               );
             })
-          : null}
+          }
       </div>
     </div>
   );

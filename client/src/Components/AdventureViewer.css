@@ -1,0 +1,6 @@
+.adventure-container {
+    margin-top: 80px;
+    font-family: 'Akshar', sans-serif;
+    color: #FED2AA;
+    text-shadow: -1px 0 1px black, 0 1px 1px black, 1px 0 1px black, 0 -1px 1px black;
+}
