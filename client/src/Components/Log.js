@@ -3,6 +3,7 @@ import PlacesAutocomplete, {
   geocodeByAddress,
 } from "react-places-autocomplete";
 import { useNavigate } from "react-router-dom";
+import "./Log.css";
 
 function Log({ user }) {
   const [title, setTitle] = useState("");
@@ -16,7 +17,7 @@ function Log({ user }) {
 
   const handleSelect = async (value) => {
     const results = await geocodeByAddress(value);
-    setAddress(value);
+    setAddress("");
     const last_address_component = results[0].address_components.length - 1;
     const country_code =
       results[0].address_components[last_address_component].short_name;
@@ -60,76 +61,74 @@ function Log({ user }) {
   };
 
   return (
-    <div className="container" align="center">
-      <div className="row">
-        <h2>Add Locations to your trip!</h2>
-        <PlacesAutocomplete
-          value={address}
-          onChange={setAddress}
-          onSelect={handleSelect}
-        >
-          {({
-            getInputProps,
-            suggestions,
-            getSuggestionItemProps,
-            loading,
-          }) => (
-            <div>
-              <input {...getInputProps({ placeholder: "Type location" })} />
-              <div>
-                {loading ? <div>...loading</div> : null}
-                {suggestions.map((suggestion) => {
-                  const style = {
-                    backgroundColor: suggestion.active
-                      ? "rgb(96, 234, 249)"
-                      : "#fff",
-                  };
-                  return (
-                    <div {...getSuggestionItemProps(suggestion, { style })}>
-                      {suggestion.description}
-                    </div>
-                  );
-                })}
+    <div className="container">
+      <div className="form-container">
+        <div className="title" align="center">
+          <h2>Use the search bar to Add Locations to your trip!</h2>
+          <PlacesAutocomplete
+            value={address}
+            onChange={setAddress}
+            onSelect={handleSelect}
+          >
+            {({
+              getInputProps,
+              suggestions,
+              getSuggestionItemProps,
+              loading,
+            }) => (
+              <div className="places-input">
+                <input {...getInputProps({ placeholder: "Type location" })} />
+                <div>
+                  {loading ? <div>...loading</div> : null}
+                  {suggestions.map((suggestion) => {
+                    const style = {
+                      backgroundColor: suggestion.active
+                        ? "#ffbf86"
+                        : "#fff",
+                    };
+                    return (
+                      <div {...getSuggestionItemProps(suggestion, { style })}>
+                        {suggestion.description}
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          )}
-        </PlacesAutocomplete>
-      </div>
-      <div className="row">
-        <div className="col">
-          {locationList
-            ? locationList.map((locale) => {
-                return <p> {`${locale.city}, ${locale.country}`} </p>;
-              })
-            : null}
+            )}
+          </PlacesAutocomplete>
         </div>
-      </div>
-      <div className="row">
-        <div className="col">
-          <form type="submit" onSubmit={onCreateAdventure}>
-            <label /> <div>Title:</div>
+        <form type="submit" onSubmit={onCreateAdventure}>
+          <div className="log-form-container">
+            <label /> Title:
             <input
               type="text"
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Title..."
             ></input>
-            <label /> <div>Trip start:</div>
+            <label /> Trip start:
             <input
               type="date"
               onChange={(e) => setTripStart(e.target.value)}
             ></input>
-            <label /> <div>Trip end:</div>
+            <label /> Trip end:
             <input
               type="date"
               onChange={(e) => setTripEnd(e.target.value)}
             ></input>
             <div>
-              <button type="submit">submit</button>
+              <button type="submit" className="submit-button">Log Adventure</button>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
+
+        <div className="errors">{errors && <p> {`${errors}` + ""} </p>}</div>
       </div>
-      <div className="row">{errors ? <p> {`${errors}` + ""} </p> : null}</div>
+      <div className="list-items">
+          {locationList &&
+            locationList.map((locale) => {
+              return <p> {`${locale.city}, ${locale.country}`} </p>;
+            })}
+      </div>
     </div>
   );
 }

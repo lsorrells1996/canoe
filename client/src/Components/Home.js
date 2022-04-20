@@ -39,7 +39,7 @@ function Home({ setUser, user }) {
                 return (
                   <div className="planned">
                     {" "}
-                    <PlannedAdventureListItem key={p.id} title={p.title} id={p.id} />{" "}
+                    <PlannedAdventureListItem key={p.id} title={p.title} id={p.id} tripStart={p.trip_start} tripEnd={p.trip_end} />{" "}
                   </div>
                 );
               })}

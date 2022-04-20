@@ -23,11 +23,11 @@ function Header({ setUser, user, handleLoginClick }) {
             <div className="logo">Canoe
             <img src={logo} alt="" />
             </div>
-            <div className="menu">
+            <div className="menu-center">
               <ul>
-                <Link className="menu-list" to="/home">Home</Link>
-                <Link className="menu-list" to="/log">Log</Link>
-                <Link className="menu-list" to="/planning">Plan</Link>
+                <Link className="menu-center-list" to="/home">Home</Link>
+                <Link className="menu-center-list" to="/log">Log</Link>
+                <Link className="menu-center-list" to="/planning">Plan</Link>
               </ul>
             </div>
             <div className="logout">
