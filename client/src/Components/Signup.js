@@ -42,6 +42,7 @@ function Signup({ setUser }) {
         <div className="picture-signup-container">
           <h1>Canoe</h1>
           <img src={logo} alt="logo" />
+          { errors && <p>{`${errors}`}</p> }
         </div>
         <form onSubmit={onSignup}>
           <div className="input-signup-container">

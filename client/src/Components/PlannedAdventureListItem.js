@@ -10,7 +10,7 @@ function PlannedAdventureListItem({ title, id, tripStart, tripEnd }) {
     <>
       <div> { title } </div>
       <div> { tripStart } - { tripEnd } </div>
-      <div><button>⋮</button></div>
+      
       
       <Link to={url} className="logged-expand">
         {" "}

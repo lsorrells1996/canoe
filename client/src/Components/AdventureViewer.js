@@ -6,7 +6,7 @@ import "./AdventureViewer.css";
 function AdventureViewer() {
   const [adventure, setAdventure] = useState("");
   const [showCommentForm, setShowCommentForm] = useState(false);
-  const [notes, setNotes] = useState("");
+  const [notes, setNotes] = useState(false);
   const navigate = useNavigate();
   let params = useParams();
 
@@ -69,12 +69,12 @@ function AdventureViewer() {
               );
             })}
         </div>
-        <div className="comments-container">
+        { !notes && <div className="comments-container">
           {comments &&
             comments.map((c) => {
-              return <p> {c.notes} </p>;
+              return <p> 	• {c.notes} </p>;
             })}
-        </div>
+        </div>}
       </div>
       <div>
         {showCommentForm && (
@@ -88,7 +88,7 @@ function AdventureViewer() {
               <div className="form">
                 <form onSubmit={addComment}>
                   <textarea
-                    placeholder="What did you do on your adventure?..."
+                    placeholder="What did you do on your adventure?"
                     onChange={(e) => setNotes(e.target.value)}
                   ></textarea>
                   <div className="submit-comment-button">

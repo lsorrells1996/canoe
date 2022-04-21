@@ -38,6 +38,7 @@ function Login({ setUser }) {
         <div className="picture-container">
           <h1>Canoe</h1>
           <img src={logo} alt="logo" />
+          { errors && <p>{`${errors}`}</p> }
         </div>
         <form onSubmit={onLogin}>
           <div className="input-container">

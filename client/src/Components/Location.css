@@ -1,7 +1,58 @@
 .locations-container {
     background-color: rgb(255, 191, 134, .7);
     font-family: 'Akshar', sans-serif;
+    font-size: 25px;
     color: #CEE5D0;
+    border-radius: 12px;
+    box-shadow: rgb(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-bottom: 20px;
+}
+
+.locations-container h3 {
+    margin-top: 0;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
+@keyframes loading {
+    from {
+        transform: scale(1.5);
+        background-color: rgb(166, 166, 166);
+    }
+}
+
+.loading-1 {
+    background-color: rgb(128, 128, 128, .6);
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    animation-name: loading;
+    animation-duration: 1s;
+}
+
+.loading-2 {
+    background-color: rgb(128, 128, 128, .6);
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    animation-name: loading;
+    animation-delay: 0.5s;
+    animation-duration: 1s;
+}
+
+.loading-3 {
+    background-color: rgb(128, 128, 128, .6);
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    animation-name: loading;
+    animation-delay: 1s;
+    animation-duration: 1s;
 }
 
 .city-img {

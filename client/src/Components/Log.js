@@ -64,7 +64,7 @@ function Log({ user }) {
     <div className="container">
       <div className="form-container">
         <div className="title" align="center">
-          <h2>Use the search bar to Add Locations to your trip!</h2>
+          <h2>Use The Search Bar To Add Locations To Your Trip!</h2>
           <PlacesAutocomplete
             value={address}
             onChange={setAddress}
@@ -77,7 +77,7 @@ function Log({ user }) {
               loading,
             }) => (
               <div className="places-input">
-                <input {...getInputProps({ placeholder: "Type location" })} />
+                <input {...getInputProps({ placeholder: "Find a city..." })} />
                 <div>
                   {loading ? <div>...loading</div> : null}
                   {suggestions.map((suggestion) => {
@@ -103,14 +103,14 @@ function Log({ user }) {
             <input
               type="text"
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="Title..."
+              placeholder="Title of adventure..."
             ></input>
-            <label /> Trip start:
+            <label /> Trip Start:
             <input
               type="date"
               onChange={(e) => setTripStart(e.target.value)}
             ></input>
-            <label /> Trip end:
+            <label /> Trip End:
             <input
               type="date"
               onChange={(e) => setTripEnd(e.target.value)}

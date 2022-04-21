@@ -9,7 +9,7 @@ function AdventureListItem({ title, id, tripStart, tripEnd }) {
   return (
     <>
       <div> {`${title}`} </div>
-      <div> {`${tripStart} - ${tripEnd}`} </div>
+      <div> { tripStart } - { tripEnd } </div>
       <Link to={url} className="logged-expand">
         {" "}
         View Adventure!{" "}
