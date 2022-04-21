@@ -27,7 +27,7 @@ function Home({ setUser, user }) {
 
     Promise.all(myfetches);
   }, []);
- 
+  console.log(adventures[9])
   return (
     <>
       <div className="content-container">

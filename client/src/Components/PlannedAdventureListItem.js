@@ -8,8 +8,8 @@ function PlannedAdventureListItem({ title, id, tripStart, tripEnd }) {
 
   return (
     <>
-      <div> {`${title}`} </div>
-      <div> {`${tripStart} - ${tripEnd}`} </div>
+      <div> { title } </div>
+      <div> { tripStart } - { tripEnd } </div>
       <div><button>⋮</button></div>
       
       <Link to={url} className="logged-expand">

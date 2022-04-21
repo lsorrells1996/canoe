@@ -16,7 +16,7 @@ function Planning({ user }) {
 
   const handleSelect = async (value) => {
     const results = await geocodeByAddress(value);
-    setAddress(value);
+    setAddress("");
     const last_address_component = results[0].address_components.length - 1;
     const country_code =
       results[0].address_components[last_address_component].short_name;

@@ -28,18 +28,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_20_193346) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "trip_start"
-    t.date "trip_end"
+    t.string "trip_start"
+    t.string "trip_end"
     t.index ["user_id"], name: "index_adventures_on_user_id"
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.string "comment"
-    t.string "location_id"
-    t.bigint "adventure_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["adventure_id"], name: "index_comments_on_adventure_id"
   end
 
   create_table "planned_adventure_comments", force: :cascade do |t|
@@ -56,8 +47,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_20_193346) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "trip_start"
-    t.date "trip_end"
+    t.string "trip_start"
+    t.string "trip_end"
     t.index ["user_id"], name: "index_planned_adventures_on_user_id"
   end
 
@@ -71,7 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_20_193346) do
 
   add_foreign_key "adventure_comments", "adventures"
   add_foreign_key "adventures", "users"
-  add_foreign_key "comments", "adventures"
   add_foreign_key "planned_adventure_comments", "planned_adventures"
   add_foreign_key "planned_adventures", "users"
 end

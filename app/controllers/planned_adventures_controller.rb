@@ -4,7 +4,7 @@ class PlannedAdventuresController < ApplicationController
     end
 
     def index 
-        render json: PlannedAdventure.where(user_id:[current_user.id]), status: :ok
+        render json: PlannedAdventure.where(user_id:[current_user.id]), includes: ['planned_adventure_comments'], status: :ok
     end
 
     def show
