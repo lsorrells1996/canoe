@@ -7,7 +7,7 @@
     margin-right: 20vh;
     z-index: 100;
     flex-direction: column;
-    background-color: rgb(255, 191, 134, 0.5)
+    background-color: rgba(251, 179, 116, 0.5)
 }
 
 .about h1 {
